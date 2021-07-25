@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 // Store
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { DataTableModule } from './data-table/data-table.module';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         strictActionImmutability: true
       }
     }),
+    DataTableModule,
     StoreDevtoolsModule.instrument({
       maxAge: 10, 
       logOnly: environment.production, 
