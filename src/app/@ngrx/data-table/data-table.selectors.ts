@@ -11,10 +11,10 @@ export const selectSortKey = createSelector(selectDataTableState, (state: DataTa
 export const selectTableData = createSelector(selectDataTableState, (state: DataTableState) => state.tableData);
 
 export const selectSortedData = createSelector(
-  selectTableData,
-  selectSortDirection,
-  selectSortKey,
-  (tableData, sortDirection, sortKey) => {
+  selectDataTableState,
+  (state: DataTableState) => {
+    const {sortDirection, sortKey, tableData} = state
+
     if (sortDirection === '') {
       return tableData;
     }
@@ -26,7 +26,22 @@ export const selectSortedData = createSelector(
     return sortedData;
   }
 );
-
+// export const selectSortedData = createSelector(
+//   selectTableData,
+//   selectSortDirection,
+//   selectSortKey,
+//   (tableData, sortDirection, sortKey) => {
+//     if (sortDirection === '') {
+//       return tableData;
+//     }
+//     const sortedData = [...tableData].sort((a, b) => {
+//       const paramA = a[sortKey];
+//       const paramB = b[sortKey];
+//       return compare(paramA, paramB, sortDirection);
+//     });
+//     return sortedData;
+//   }
+// );
 // Utils
 export function compare(a: any, b: any, sortDirection: string): number {
   if (a > b) {
