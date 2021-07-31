@@ -1,23 +1,8 @@
-<h1 class="text-center my-4">Data Table</h1>
-
-<ng-container *ngrxLet="data$; let data; let error = $error">
-  <div class="container">
-    <div class="row">
-      <!-- SPINNER -->
-      <div class="col-12" *ngIf="!error && !data">
-        <app-spinner></app-spinner>
-      </div>
-      <!-- ERROR -->
-      <div class="col-12" *ngIf="error">
-        <app-error></app-error>
-      </div>
-      <!-- TABLE-->
-      <div class="col-12 mx-auto" *ngIf="data">
-        <app-data-table 
-          [data]="data"
-          [headerRow]="headerRow"
-        ></app-data-table>
-      </div>
+<h1 class="text-center my-4">Tree</h1>
+<div class="container shadow" style="background-color: rgb(222, 231, 231);">
+  <div class="row">
+    <div class="col">
+      <ng-container #placeholder></ng-container>
     </div>
   </div>
-</ng-container>
+</div>
