@@ -1,11 +1,18 @@
-<ul (click)="onClick(); $event.stopPropagation()">
-  <div class="ul-title" *ngIf="inputComponents.length">
+<div (click)="onClick(); $event.stopPropagation()" class="tree-group">
+  <!-- ITEM WITH CHILDREN -->
+  <div class="ul-item" *ngIf="inputComponents.length">
     <i class="bi bi-chevron-right" *ngIf="isHidden"></i>
     <i class="bi bi-chevron-down" *ngIf="!isHidden"></i>
     {{ data?.name }}
   </div>
-  <div class="ul-title px-3" *ngIf="!inputComponents.length">{{ data?.name }}</div>
+
+  <!-- ITEM WITH NO CHILDREN -->
+  <div class="ul-item no-children" *ngIf="!inputComponents.length">
+    {{ data?.name }}
+  </div>
+
+  <!-- CHILDREN -->
   <span [hidden]="isHidden">
     <ng-container #placeholder></ng-container>
   </span>
-</ul>
+</div>
