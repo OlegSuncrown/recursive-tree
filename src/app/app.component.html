@@ -1,7 +1,13 @@
-<h1 class="text-center my-4">Tree</h1>
-<div class="container shadow" style="background-color: rgb(222, 231, 231);">
+<div class="container shadow border p-4" style="background-color: rgb(236, 236, 236);">
   <div class="row">
-    <div class="col">
+    <div class="col-12 mb-3 px-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">JSON</span>
+        <textarea [(ngModel)]="userInput" class="form-control bg-dark text-light" placeholder="Add JSON tree" style="height: 200px"></textarea>
+      </div>
+      <button type="button" (click)="onClick()" class="btn btn-primary d-block">Submit</button>
+    </div>
+    <div class="col-12">
       <ng-container #placeholder></ng-container>
     </div>
   </div>
