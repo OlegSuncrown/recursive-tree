@@ -9,7 +9,8 @@ export class TreeItemComponent implements OnInit {
   @ViewChild('placeholder', { read: ViewContainerRef, static: true })
   public placeholder!: ViewContainerRef;
   @Input() data: any;
-  @Input() inputComponents: any;
+  @Input() inputComponents: any = [];
+  isHidden = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,4 +21,7 @@ export class TreeItemComponent implements OnInit {
     } 
   }
 
+  onClick() {
+    this.isHidden = !this.isHidden
+  }
 }

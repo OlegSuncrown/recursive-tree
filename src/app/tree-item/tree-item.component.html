@@ -1,4 +1,11 @@
-<ul>
-  <li class="ul-title">{{data?.name}}</li>
-  <ng-container #placeholder></ng-container>
+<ul (click)="onClick(); $event.stopPropagation()">
+  <div class="ul-title" *ngIf="inputComponents.length">
+    <i class="bi bi-chevron-right" *ngIf="isHidden"></i>
+    <i class="bi bi-chevron-down" *ngIf="!isHidden"></i>
+    {{ data?.name }}
+  </div>
+  <div class="ul-title px-3" *ngIf="!inputComponents.length">{{ data?.name }}</div>
+  <span [hidden]="isHidden">
+    <ng-container #placeholder></ng-container>
+  </span>
 </ul>
