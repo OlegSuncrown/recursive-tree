@@ -27,15 +27,17 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.createTree(treeData)
+    const rootComponent = this.createTree(treeData)
+    this.placeholder.insert(rootComponent.hostView);
   }
 
   onClick() {
     try {
       this.placeholder.clear();
       const data = JSON.parse(this.userInput);
-      this.treeData = data
-      this.createTree(this.treeData);
+      
+      const rootComponent = this.createTree(data)
+      this.placeholder.insert(rootComponent.hostView)
     } catch {
       alert('JSON parse error');
     }
@@ -53,12 +55,6 @@ export class AppComponent implements OnInit {
     }
 
     component.instance.inputComponents = [...arrWithChildren];
-
-    // Insert tree only when it is last iteration
-    if(node.name === this.treeData.name) {
-      this.placeholder.insert(component.hostView);
-    }
-
     return component;
   }
 }
